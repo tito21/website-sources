@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 import subprocess
 import pathlib
@@ -9,7 +10,7 @@ from src.utils import *
 from src.sitemap_generator import Sitemap
 
 path_root = pathlib.Path('.')
-path_site = pathlib.Path('site')
+path_site = pathlib.Path('public')
 path_posts = pathlib.Path('_posts')
 path_tmp = pathlib.Path('tmp')
 
@@ -102,7 +103,8 @@ for p in pages:
 
 print("Build {} pages".format(len(pages)))
 
-shutil.copy(path_root/'template/style.css', path_site/'assets')
+shutil.copytree(path_root/'_assets', path_site/'assets')
+shutil.copy(path_root/'template/style.css', path_site/'assets/style.css')
 
 print("Site generated at {}".format(path_site))
 
