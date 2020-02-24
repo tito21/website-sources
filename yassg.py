@@ -10,7 +10,7 @@ from src.utils import *
 from src.sitemap_generator import Sitemap
 
 path_root = pathlib.Path('.')
-path_site = pathlib.Path('tito21.github.io')
+path_site = pathlib.Path('public')
 path_posts = pathlib.Path('_posts')
 path_tmp = pathlib.Path('tmp')
 
