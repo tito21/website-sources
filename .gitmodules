@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/tito21/tito21.github.io.git
+	branch = master
