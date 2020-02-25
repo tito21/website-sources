@@ -14,8 +14,12 @@ path_site = pathlib.Path('public')
 path_posts = pathlib.Path('_posts')
 path_tmp = pathlib.Path('tmp')
 
+shutil.rmtree(path_site, ignore_errors=True)
 path_site.mkdir(exist_ok=True)
 path_tmp.mkdir(exist_ok=True)
+
+shutil.copytree(path_root/'_assets', path_site/'assets')
+shutil.copy(path_root/'template/style.css', path_site/'assets/style.css')
 
 args = {
     "template": "template/index.html",
@@ -33,8 +37,6 @@ def build_posts(post_files):
     """Returns a list of dicts with metadata from each post"""
     posts = []
     for p in post_files:
-        out = site_posts / p.with_suffix(".html").name
-        run_pandoc(p.as_posix(), out.as_posix(), args=args)
         with open(p, encoding='utf_8') as f:
             metadata, content = frontmatter.parse(f.read())
         p_data = {
@@ -42,10 +44,12 @@ def build_posts(post_files):
             'categories' : metadata['categories'],
             'description' : metadata['description'],
             'date' : format_time(metadata['date']),
-            'url' : out.relative_to(path_site).as_posix(),
+            'url' : (site_posts/metadata['slug']).with_suffix(".html"),
             'metadata' : metadata
         }
         posts.append(p_data)
+        out = p_data['url']
+        run_pandoc(p.as_posix(), out, args=args)
     return posts
 
 def build_front_page(input_file, output_file, posts):
@@ -102,9 +106,6 @@ for p in pages:
     run_pandoc(p.as_posix(), out.as_posix(), args=args)
 
 print("Build {} pages".format(len(pages)))
-
-shutil.copytree(path_root/'_assets', path_site/'assets')
-shutil.copy(path_root/'template/style.css', path_site/'assets/style.css')
 
 print("Site generated at {}".format(path_site))
 

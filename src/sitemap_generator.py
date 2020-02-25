@@ -1,11 +1,13 @@
 import pathlib
+import urllib.parse
 from xml.etree.ElementTree import ElementTree, Element
 
 SCHEMA = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 def format_url(base_url, path):
-    file = base_url/path
-    return file.as_posix()
+    file = urllib.parse.urljoin(str(base_url), path.as_posix())
+    file = urllib.parse.quote(file, safe='/:<>&\'\"')
+    return file
 
 
 class Sitemap:

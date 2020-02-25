@@ -2,6 +2,7 @@
 layout: post
 title: "Introducción a MatLab"
 date: 2019-04-26 22:22:43 -0300
+slug: tutorial-matlab
 use_math: true
 categories: ["MatLab", "tutorial", "programacion"]
 tags: ["matlab", "introducción", "básico", "aprender"]

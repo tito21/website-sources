@@ -11,7 +11,7 @@ description: Veremos como usar una red neuronal (CNN) para generar obras de arte
              cualquiera.
 ---
 
-En un post [anterior](2019-02-20-Visualizacion-de-filtros-de-redes-neuronales-en-keras.html)
+En un post [anterior](visualizacion-de-filtros-en-keras.html)
 exploramos los filtros de una red convolucional (CNN) para entender como esta funcionaba. Esa ves buscamos una
 imagen que maximice la activacion en cada filtro y de esta forma veíamos las características que este estaba
 detectando. Al final del articulo mencionamos el trabajo realizado en Google para crear imágenes de ensueño conocido
