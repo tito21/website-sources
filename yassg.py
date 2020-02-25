@@ -14,7 +14,7 @@ path_site = pathlib.Path('public')
 path_posts = pathlib.Path('_posts')
 path_tmp = pathlib.Path('tmp')
 
-shutil.rmtree(path_site, ignore_errors=True)
+# shutil.rmtree(path_site, ignore_errors=True)
 path_site.mkdir(exist_ok=True)
 path_tmp.mkdir(exist_ok=True)
 

@@ -7,10 +7,8 @@ Vivo en Santiago de Chile y estudio Ingeniería Biomédica en la Pontificia
 Universidad Católica de Chile (UC). Cuando no estoy estudiando, escribo en esta
 pagina sobre Python, Machine Learning, Wolfram Mathematica y otros temas.
 
-$for(posts)$
-
 <!-- Using /nowrap pipe to prevent pandoc inserting new lines -->
-
+$for(posts)$
 ## [$posts.title/nowrap$]($posts.url/nowrap$)
 
 ::: sub-title
