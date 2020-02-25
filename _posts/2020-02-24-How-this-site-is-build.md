@@ -23,4 +23,6 @@ especially in light of tools like [pandoc](https://pandoc.org).
 # Extra: generating `robots.txt` and `sitemap.xml`
 
 One of the true advantages of a system like Jekyll is the ability to easily add
-plugins. A `sitemap.xml` is generated with the website. Hopefully a 
+plugins. A `sitemap.xml` is generated with the website. Hopefully a
+
+<script src="https://gist.github.com/tito21/f9ae856eee2f3f41b4da1490238a9097.js"></script>
