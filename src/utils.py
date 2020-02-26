@@ -1,4 +1,5 @@
 import subprocess
+import shutil
 import datetime
 from dateutil.parser import parse
 
@@ -32,3 +33,14 @@ def format_time(time, in_format="%Y-%m-%d %H:M:%S %z", out_format="%d %b %Y"):
     # date = datetime.datetime.strptime(time, in_format)
     date = parse(time)
     return date.strftime(out_format)
+
+def copytree(src, dst):
+    """Recursively copy  contents of one src folder to dst with no errors if
+    files or directories exists"""
+    dst.mkdir(exist_ok=True)
+    for f in src.iterdir():
+        if f.is_dir():
+            newdst = (dst/f.name)
+            copytree(f, newdst)
+        else:
+            shutil.copy2(f, dst)

@@ -14,11 +14,11 @@ path_site = pathlib.Path('public')
 path_posts = pathlib.Path('_posts')
 path_tmp = pathlib.Path('tmp')
 
-# shutil.rmtree(path_site, ignore_errors=True)
+# DO NOT REMOVE ANYTHING ON ./public recursively
 path_site.mkdir(exist_ok=True)
 path_tmp.mkdir(exist_ok=True)
 
-shutil.copytree(path_root/'_assets', path_site/'assets')
+copytree(path_root/'_assets', path_site/'assets')
 shutil.copy(path_root/'template/style.css', path_site/'assets/style.css')
 
 args = {
@@ -44,11 +44,11 @@ def build_posts(post_files):
             'categories' : metadata['categories'],
             'description' : metadata['description'],
             'date' : format_time(metadata['date']),
-            'url' : (site_posts/metadata['slug']).with_suffix(".html"),
+            'url' : "posts/" + metadata['slug'].replace(' ', '-') + ".html",
             'metadata' : metadata
         }
         posts.append(p_data)
-        out = p_data['url']
+        out = (path_site/p_data['url']).relative_to(path_root)
         run_pandoc(p.as_posix(), out, args=args)
     return posts
 
@@ -93,7 +93,6 @@ post_files = path_posts.glob('*.md')
 site_posts = path_site / "posts"
 site_posts.mkdir(exist_ok=True)
 posts = build_posts(post_files)
-
 build_front_page(path_root/"index.md", path_site/"index.html", posts)
 print("Build {} post".format(len(posts)))
 
