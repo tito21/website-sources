@@ -46,8 +46,8 @@ def build_posts(post_files):
         with open(p, encoding='utf_8') as f:
             metadata, content = frontmatter.parse(f.read())
 
-        if not args.draft:
-            if 'draft' in metadata.keys(): # Do not build drafts
+        if 'draft' in metadata.keys(): # Do not build drafts
+            if not args.draft:
                 continue
 
         p_data = {
@@ -134,5 +134,8 @@ if args.serve:
     PORT = 8000
     Handler = http.server.SimpleHTTPRequestHandler
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
-        print("serving at port", PORT, "\nPress CTRL-C to stop")
+        print("serving at port {}".format(PORT),
+              "Press CTRL-C to stop",
+              "Files are NOT rebuild automatically.",
+              "To update stop the server and rerun", sep='\n')
         httpd.serve_forever()

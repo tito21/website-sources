@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How this site is build"
-slug: "how-this-is-site-build"
+slug: "how-this-site-is-build"
 date: 2020-02-24 20:20:20 -0300
 draft: true
 categories: ["Python", "pandoc", "github", "english"]

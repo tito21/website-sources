@@ -22,3 +22,5 @@ committing to the root repo should be done manually.
 
 Post with a field `draft` in the frontmatter will be ignored when building the
 site.
+
+For development `yassg.py` has the options `--serve` and `--draft`.
