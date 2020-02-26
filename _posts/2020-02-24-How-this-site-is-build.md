@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How this site is build"
-slug: "how-site-build"
+slug: "how-this-is-site-build"
 date: 2020-02-24 20:20:20 -0300
 draft: true
 categories: ["Python", "pandoc", "github", "english"]
@@ -19,19 +19,27 @@ difficult if you don't really use it for anything else. I also think the whole
 Jekyll ecosystem is a bit overkill for just converting Markdown to HTML
 especially in light of tools like [pandoc](https://pandoc.org).
 
-With this in mind I decided to write my own tool for generating websites. All it
-really is a python script for running pandoc with custom arguments. I first
-wrote a pandoc template to use a the foundation for the website that supports
-all the features I needed for my website (namely MathJax, syntax highlighting
-and general webpage footer and headers). Then the posts are converted to HTML
-using pandoc.
+With this in mind I decided to write my own tool for generating websites. In
+design my new system I wanted to be as easy to use and flexible so the site can
+be ported with ease. Also the system should be properly documented and self
+explanatory. A problem I have with the previous system was that every six month
+or so when I update the blog I had to google how to preview something
+
+All it really is a python script for running pandoc with custom arguments. The
+script can read YAML frontmater of a page to customize its build processes.
+
+I first wrote a pandoc template to use a the foundation for the website that
+supports all the features I needed for my website (namely MathJax, syntax
+highlighting and general webpage footer and headers). Then the posts are
+converted to HTML using pandoc.
 
 ## Using pandoc to fill in variables
 
 
+
 ## Hosting on Github
 
-As I have no budged for a website every thing is hosted on Github. The site
+As I have no budget for a website every thing is hosted on Github. The site
 itself it a user's github at [https://github.com/tito21/tito21.github.io] and
 all the sources at [https://github.com/tito21/website-sources]
 
