@@ -39,6 +39,10 @@ def build_posts(post_files):
     for p in post_files:
         with open(p, encoding='utf_8') as f:
             metadata, content = frontmatter.parse(f.read())
+
+        if 'draft' in metadata.keys(): # Do not build drafts
+            continue
+
         p_data = {
             'title' : metadata['title'],
             'categories' : metadata['categories'],
