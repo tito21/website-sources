@@ -3,7 +3,6 @@ layout: post
 title: "How this site is build"
 slug: "how-this-site-is-build"
 date: 2020-02-26 20:20:20 -0300
-draft: true
 categories: ["Python", "pandoc", "github", "english"]
 tags: ["markdown", "site generator", "pandoc", "websites"]
 description: This site is generated using pandoc managed by a set of python
