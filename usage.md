@@ -17,7 +17,7 @@ The `public` folder is a manage as a git submodule as the instructions on the
 [hugo docs](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
 **Do not delate the folder or any of its contents**
 
-The steps 2 and 3 are know manage by `deploy.sh`. Only writing post and
+The steps 2 and 3 are manage by `deploy.sh`. Only writing post and
 committing to the root repo should be done manually.
 
 Post with a field `draft` in the frontmatter will be ignored when building the
